@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class MonsterController : MonoBehaviour
 {
-    // Start is called before the first frame update
     public float speed;
     private Waypoint waypoint;
     private int waypointIndex;
@@ -23,4 +22,6 @@ public class MonsterController : MonoBehaviour
             waypointIndex++;
         }
     }
+
+   
 }
