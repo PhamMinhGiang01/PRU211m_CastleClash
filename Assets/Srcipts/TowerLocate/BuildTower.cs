@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Unity.Burst.CompilerServices;
 using UnityEngine;
 
 public class BuildTower : MonoBehaviour
@@ -52,7 +53,8 @@ public class BuildTower : MonoBehaviour
         count++;
         if (count == 1)      
         {
-                choose = Instantiate(Choosetower, transform.position, Quaternion.identity);
+            choose = Instantiate(Choosetower, transform.position, Quaternion.identity);
+            //UIController.instance.OpenBtnBuyTower(transform);
         }
         if(count == 2)
         {

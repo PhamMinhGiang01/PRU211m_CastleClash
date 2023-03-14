@@ -18,11 +18,9 @@ public class ArrowTowerDestroy : MonoBehaviour
         
     }
 
-    private void OnMouseUp()
+    public void Click()
     {
-        GameObject.FindGameObjectWithTag(tag).GetComponent<BoxCollider2D>().enabled = true;
-        GameManage.isBuild = true;
+        Debug.Log(objectTow.tag);
         Destroy(objectTow);
-        Destroy(GameObject.FindGameObjectWithTag("buildoption"));
     }
 }

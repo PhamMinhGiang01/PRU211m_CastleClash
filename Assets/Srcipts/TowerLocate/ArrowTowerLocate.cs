@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ArrowTowerLocate : MonoBehaviour
 {
+    public static ArrowTowerLocate instance;
     //[SerializeField]
     //GameObject bullet;
     //int level;
@@ -17,7 +18,7 @@ public class ArrowTowerLocate : MonoBehaviour
     //float scope;
     [SerializeField]
     GameObject tower;
-
+    string tag = GameManage.tagPlace;
 
 
     //// Start is called before the first frame update
@@ -40,15 +41,19 @@ public class ArrowTowerLocate : MonoBehaviour
     //{
     //    return tower == null;
     //}
-
-    private void OnMouseUp()
+    public string GetPlaceTag()
     {
-        Instantiate(tower, GameManage.position, Quaternion.identity);
+        return tag;
+    }
+    public void click()
+    {
+        GameObject newTower = Instantiate(tower, GameManage.position, Quaternion.identity);
+        newTower.GetComponent<TowerController>().towerPlacementTag= GameManage.tagPlace;
         //GameObject.FindGameObjectWithTag(GameManage.tag).SetActive(false);
         GameObject game = GameObject.FindGameObjectWithTag(GameManage.tagPlace);
         BoxCollider2D coll = game.GetComponent<BoxCollider2D>();
         coll.enabled = false;
-        Destroy(GameObject.FindGameObjectWithTag("choosetower"));
+       // Destroy(GameObject.FindGameObjectWithTag("choosetower"));
     }
 
 

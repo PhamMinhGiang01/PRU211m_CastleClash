@@ -18,13 +18,14 @@ public class BoomTowerLocate : MonoBehaviour
     {
         
     }
-    private void OnMouseUp()
+    public void Click()
     {
-        Instantiate(tower, GameManage.position, Quaternion.identity);
+        GameObject newTower = Instantiate(tower, GameManage.position, Quaternion.identity);
+        newTower.GetComponent<TowerController>().towerPlacementTag = GameManage.tagPlace;
         //GameObject.FindGameObjectWithTag(GameManage.tag).SetActive(false);
         GameObject game = GameObject.FindGameObjectWithTag(GameManage.tagPlace);
         BoxCollider2D coll = game.GetComponent<BoxCollider2D>();
         coll.enabled = false;
-        Destroy(GameObject.FindGameObjectWithTag("choosetower"));
+        // Destroy(GameObject.FindGameObjectWithTag("choosetower"));
     }
 }

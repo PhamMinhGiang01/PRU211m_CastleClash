@@ -61,6 +61,13 @@ TagManager:
   - place53
   - before
   - buildoption
+  - TowerPlacement
+  - ArrowTower
+  - BoomTower
+  - MagicTower
+  - StoneTower
+  - 1
+  - Monter
   layers:
   - Default
   - TransparentFX
@@ -68,8 +75,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - TowerPlacement
+  - Tower
   - 
   - 
   - 
