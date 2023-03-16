@@ -1,6 +1,7 @@
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 
 public class MagicTowerController : MonoBehaviour
@@ -11,8 +12,15 @@ public class MagicTowerController : MonoBehaviour
     public Transform arrowParentLv1;
     List<GameObject> monsters = new List<GameObject>();
     private float fireRate = 1.5f;
+    
+    public float price;
+    public float priceUpgrade;
+    public int level;
     void Start()
     {
+        price = 150;
+        priceUpgrade = 70;
+        level = 1;
     }
 
     // Update is called once per frame
@@ -69,7 +77,7 @@ public class MagicTowerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D target)
     {
-        Debug.Log(monsters.Count);
+     
         if (target.gameObject.tag.Equals("Monter"))
         {
             monsters.Add(target.gameObject);

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
@@ -14,6 +15,15 @@ public class UIController : MonoBehaviour
     GameObject currentTower;
     [SerializeField]
     string towerPlacementTag;
+
+    public GameObject btnBuyArrowTower;
+    public GameObject btnBuyMagicTower;
+    public GameObject btnBuyStoneTower;
+    public GameObject btnBuyBoomTower;
+
+    public GameObject btnSellTower;
+    public GameObject btnUpgradeTower;
+    public Text level;
     private void Awake()
     {
         if (instance == null)
@@ -55,7 +65,7 @@ public class UIController : MonoBehaviour
         CloseBtnBuyTower();
         CloseAttackRange();
 
-        //SetPrice(tower);
+        SetPrice(tower);
         btnTowerBuildOption.transform.DOKill();
         btnTowerBuildOption.SetActive(false);
         btnTowerBuildOption.transform.position = new Vector3(targetPosition.position.x, targetPosition.position.y, btnTowerBuildOption.transform.position.z);
@@ -68,11 +78,52 @@ public class UIController : MonoBehaviour
 
         OpenAttackRange();
     }
+    float priceToSell;
+    float priceToUpgrade;
+    int towerLevel;
+    void SetPrice(GameObject tower)
+    {
+        if (tower.GetComponent<ArrowTowerController>() != null)
+        {
+            towerLevel = tower.GetComponent<ArrowTowerController>().level;
+            priceToUpgrade = tower.GetComponent<ArrowTowerController>().priceUpgrade;
+            priceToSell = tower.GetComponent<ArrowTowerController>().price;
+        }else if (tower.GetComponent<MagicTowerController>() != null)
+        {
+            towerLevel = tower.GetComponent<MagicTowerController>().level;
+            priceToUpgrade = tower.GetComponent<MagicTowerController>().priceUpgrade;
+            priceToSell = tower.GetComponent<MagicTowerController>().price;
+        }
+        else if (tower.GetComponent<StoneTowerController>() != null)
+        {
+            towerLevel = tower.GetComponent<StoneTowerController>().level;
+            priceToUpgrade = tower.GetComponent<StoneTowerController>().priceUpgrade;
+            priceToSell = tower.GetComponent<StoneTowerController>().price;
+        }
+        else if (tower.GetComponent<BoomTowerController>() != null)
+        {
+            towerLevel = tower.GetComponent<BoomTowerController>().level;
+            priceToUpgrade = tower.GetComponent<BoomTowerController>().priceUpgrade;
+            priceToSell = tower.GetComponent<BoomTowerController>().price;
+        }
+        priceToSell *= 0.9f;
+        level.text = "Level: " + towerLevel; 
+        btnUpgradeTower.transform.GetChild(1).GetComponent<Text>().text = priceToUpgrade.ToString();
+        btnSellTower.transform.GetChild(1).GetComponent<Text>().text = Mathf.Round(priceToSell).ToString();
+
+    }
     public void CloseBtnTowerBuildOption()
     {
         CloseAttackRange();
         btnTowerBuildOption.transform.DOKill();
         btnTowerBuildOption.SetActive(false);
+    }
+    public void ButtonUpgradeTower()
+    {
+        //AudioController.instance.PlaySound("upgradeTower");
+        //PlayerSetting.instance.Coin -= priceToUpgrade;
+        CloseBtnTowerBuildOption();
+        TowerManager.instance.UpgradeTower(currentTower);
     }
 
     public void ButtonSellTower()
@@ -91,12 +142,10 @@ public class UIController : MonoBehaviour
     {
         if (currentTower.GetComponent<ArrowTowerController>() != null)
         {
-            Debug.Log("helloArrow");
             currentTower.GetComponent<ArrowTowerController>().attackRange.GetChild(0).gameObject.SetActive(true);
         }
         else if (currentTower.GetComponent<MagicTowerController>() != null)
         {
-            Debug.Log("helloMagic");
             currentTower.GetComponent<MagicTowerController>().attackRange.GetChild(0).gameObject.SetActive(true);
         }
         else if (currentTower.GetComponent<StoneTowerController>() != null)

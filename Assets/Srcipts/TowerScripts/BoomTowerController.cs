@@ -11,8 +11,14 @@ public class BoomTowerController : MonoBehaviour
     public Transform stoneParentLv1;
     List<GameObject> monsters = new List<GameObject>();
     private float fireRate = 1.5f;
+    public float price;
+    public float priceUpgrade;
+    public int level;
     void Start()
     {
+        price = 400;
+        priceUpgrade = 130;
+        level = 1;
     }
 
     // Update is called once per frame

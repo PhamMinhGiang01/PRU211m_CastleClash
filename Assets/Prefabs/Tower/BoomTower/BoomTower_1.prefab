@@ -119,6 +119,9 @@ MonoBehaviour:
   attackRange: {fileID: 6133894379502960312}
   stone: {fileID: 1133696609278499108, guid: 21000a13d7972b349ace51e98d0c106f, type: 3}
   stoneParentLv1: {fileID: 2380475981572318474}
+  price: 0
+  priceUpgrade: 0
+  level: 0
 --- !u!50 &8319349488232296736
 Rigidbody2D:
   serializedVersion: 4
@@ -388,7 +391,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5894014182381725031}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0045495033, y: 0.18085122, z: 0}
+  m_LocalPosition: {x: 0.0045495033, y: 0.13, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -435,7 +438,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: 1205242731, guid: 6034dc5259bfe14469c367518ccc7e40, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

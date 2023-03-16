@@ -14,8 +14,15 @@ public class ArrowTowerController : MonoBehaviour
     public Transform arrowParentLv1;
     List<GameObject> monsters = new List<GameObject>();
     private float fireRate = 1.5f;
+
+    public float price;
+    public float priceUpgrade;
+    public int level;
     void Start()
     {
+        price = 100;
+        priceUpgrade = 50;
+        level = 1;
     }
 
     // Update is called once per frame

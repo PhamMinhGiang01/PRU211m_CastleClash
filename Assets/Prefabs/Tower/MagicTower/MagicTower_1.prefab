@@ -273,7 +273,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2976488257855925299}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.2, z: 0}
+  m_LocalPosition: {x: 0, y: 0.34, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -399,6 +399,9 @@ MonoBehaviour:
   attackRange: {fileID: 7707345994777283091}
   magic: {fileID: 3618801369107328230, guid: d4e829b4b55218545a3f1afcbfeea912, type: 3}
   arrowParentLv1: {fileID: 6799623429839259274}
+  price: 0
+  priceUpgrade: 0
+  level: 0
 --- !u!50 &808598968079939720
 Rigidbody2D:
   serializedVersion: 4
