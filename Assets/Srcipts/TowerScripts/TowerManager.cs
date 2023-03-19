@@ -36,11 +36,6 @@ public class TowerManager : MonoBehaviour
     public GameObject stonelv2;
     public GameObject stonelv3;
 
-    public GameObject arrowTower;
-    public GameObject magicTower;
-    public GameObject stoneTower;
-    public GameObject boomTower;
-
     public float arrowPrice;
     public float magicPrice;
     public float stonePrice;

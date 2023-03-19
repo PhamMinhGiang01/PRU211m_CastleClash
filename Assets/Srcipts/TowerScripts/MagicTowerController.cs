@@ -77,7 +77,7 @@ public class MagicTowerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D target)
     {
-     
+        UnityEngine.Debug.Log("kkkkk");
         if (target.gameObject.tag.Equals("Monter"))
         {
             monsters.Add(target.gameObject);

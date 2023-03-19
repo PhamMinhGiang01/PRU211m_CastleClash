@@ -100,7 +100,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -340,6 +340,9 @@ MonoBehaviour:
   attackRange: {fileID: 1353162540767239069}
   stone: {fileID: 7400939499598255357, guid: 2dc4c86a404165e41a04da82c3023681, type: 3}
   stoneParentLv1: {fileID: 9132037189723351538}
+  price: 0
+  priceUpgrade: 0
+  level: 0
 --- !u!50 &3887485150759448986
 Rigidbody2D:
   serializedVersion: 4

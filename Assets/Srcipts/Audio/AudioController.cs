@@ -57,16 +57,16 @@ public class AudioController : MonoBehaviour
     {
         if (Sound == 0)
         {
-            UIController.instance.soundOn.SetActive(false);
-            UIController.instance.soundOff.SetActive(true);
+            UIController2.instance.soundOn.SetActive(false);
+            UIController2.instance.soundOff.SetActive(true);
 
             soundSource.volume = 0;
             musicSource.volume = 0;
         }
         else
         {
-            UIController.instance.soundOn.SetActive(true);
-            UIController.instance.soundOff.SetActive(false);
+            UIController2.instance.soundOn.SetActive(true);
+            UIController2.instance.soundOff.SetActive(false);
 
             soundSource.volume = 1;
             musicSource.volume = 1;

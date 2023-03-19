@@ -120,6 +120,7 @@ public class UIController : MonoBehaviour
     }
     public void ButtonUpgradeTower()
     {
+        Debug.Log("jjjjjj");
         //AudioController.instance.PlaySound("upgradeTower");
         //PlayerSetting.instance.Coin -= priceToUpgrade;
         CloseBtnTowerBuildOption();
