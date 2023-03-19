@@ -6,10 +6,16 @@ using UnityEngine.UI;
 public class GoblinController : MonoBehaviour
 {
     int maxHealth = 120;
+    int Score = 20;
+    int Coin = 20;
+
     int currentHealth = 120;
 
     [SerializeField]
     public Image heathBar;
+
+    [SerializeField]
+    public GameObject smokeExplosion;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +35,10 @@ public class GoblinController : MonoBehaviour
             heathBar.fillAmount = (float)currentHealth / maxHealth;
             if (currentHealth <= 0)
             {
+                HUD hud = GameObject.FindGameObjectWithTag("HUD").GetComponent<HUD>();
+                hud.AddScore(Score);
+                hud.AddCoin(Coin);
+                Instantiate<GameObject>(smokeExplosion, this.gameObject.transform.position, Quaternion.identity);
                 Destroy(this.gameObject);
             }
         }

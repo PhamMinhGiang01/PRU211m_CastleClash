@@ -415,3 +415,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heathBar: {fileID: 2526480483946325897}
+  smokeExplosion: {fileID: 77201920076611182, guid: efebb8691ffeeed42902bf9bda6aea54, type: 3}

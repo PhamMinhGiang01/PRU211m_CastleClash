@@ -237,6 +237,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heathBar: {fileID: 2229221041148928163}
+  smokeExplosion: {fileID: 77201920076611182, guid: efebb8691ffeeed42902bf9bda6aea54, type: 3}
 --- !u!1 &4647482414828510846
 GameObject:
   m_ObjectHideFlags: 0

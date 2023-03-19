@@ -414,4 +414,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b493d15cf1b53eb429792d5f7a967856, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heathBar: {fileID: 0}
+  heathBar: {fileID: 512581581184317409}
+  smokeExplosion: {fileID: 77201920076611182, guid: efebb8691ffeeed42902bf9bda6aea54, type: 3}
