@@ -491,9 +491,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1980160241}
-  - {fileID: 656586977}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1744,7 +1742,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pnlHome: {fileID: 7595965011826051722}
   pnlIngame: {fileID: 950013600777609378}
-  gameplayPrefab: {fileID: 4093408999409986706, guid: 84becd0dcd02d2346964022536934fad, type: 3}
+  gameplayPrefab: {fileID: 1968656270619288038, guid: 84becd0dcd02d2346964022536934fad, type: 3}
   gameplayParent: {fileID: 1662933193}
   pnlSetting: {fileID: 2384529192741426}
   soundOn: {fileID: 5251241766386708963}

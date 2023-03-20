@@ -68,6 +68,8 @@ TagManager:
   - StoneTower
   - 1
   - Monter
+  - Monster
+  - Castle
   layers:
   - Default
   - TransparentFX
