@@ -70,6 +70,7 @@ TagManager:
   - Monter
   - Monster
   - Castle
+  - Bullet
   layers:
   - Default
   - TransparentFX
