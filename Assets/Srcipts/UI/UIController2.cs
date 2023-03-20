@@ -78,7 +78,7 @@ public class UIController2 : MonoBehaviour
         pnlHome.SetActive(true);
         pnlIngame.SetActive(false);
         pnlPause.SetActive(false);
-       AudioController.instance.PlaySound("mainMenu");
+        AudioController.instance.PlaySound("mainMenu");
 
         yield return new WaitForSeconds(0.5f);
 
@@ -146,6 +146,50 @@ public class UIController2 : MonoBehaviour
         });
     }
 
+    public void ButtonRestart()
+    {
+        StartCoroutine(DelayRestart());
+    }
 
+    IEnumerator DelayRestart()
+    {
+        Time.timeScale = 1;
+        yield return new WaitForSeconds(1f);
+        pnlPause.SetActive(false);
+        pnlLose.SetActive(false);
+        Destroy(gameplayParent.GetChild(0).gameObject);
+        yield return new WaitForSeconds(0.5f);
+        Instantiate(gameplayPrefab, gameplayParent);
+        yield return new WaitForSeconds(0.5f); 
+        yield return new WaitForSeconds(1f);
 
-}
+    }
+
+    [Header("Panel Lose")]
+    public GameObject pnlLose;
+    public Transform background;
+    public Transform btnHome;
+    public Transform btnReplay;
+
+    public void OpenPanelLose()
+    {
+        StartCoroutine(DelayOpenPanelLose());
+    }
+    IEnumerator DelayOpenPanelLose()
+    {
+        btnHome.localScale = Vector3.zero;
+        btnReplay.localScale = Vector3.zero;
+        background.localScale = Vector3.zero;
+        pnlLose.GetComponent<Image>().color = new Color(0, 0, 0, 0);
+        pnlLose.SetActive(true);
+
+        pnlLose.GetComponent<Image>().DOFade(0.5f, 0.5f);
+        background.DOScale(1, 0.5f).SetEase(Ease.OutBack);
+
+        yield return new WaitForSeconds(1f);
+
+        btnReplay.DOScale(1, 0.5f).SetEase(Ease.OutBack);
+        btnHome.DOScale(1, 0.5f).SetEase(Ease.OutBack);
+    }
+
+    }
