@@ -78,7 +78,7 @@ public class UIController2 : MonoBehaviour
         pnlHome.SetActive(true);
         pnlIngame.SetActive(false);
         pnlPause.SetActive(false);
-        AudioController.instance.PlaySound("mainMenu");
+       AudioController.instance.PlaySound("mainMenu");
 
         yield return new WaitForSeconds(0.5f);
 
