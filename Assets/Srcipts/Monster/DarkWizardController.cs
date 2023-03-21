@@ -8,7 +8,7 @@ public class DarkWizardController : MonoBehaviour
     int maxHealth = 200;
     int Score = 50;
     int Coin = 50;
-    int currentHealth = 200;
+    public int currentHealth = 200;
 
     [SerializeField]
     public Image heathBar;
@@ -26,20 +26,33 @@ public class DarkWizardController : MonoBehaviour
     {
         
     }
-    void OnCollisionEnter2D(Collision2D coll)
+    public void TakeDamage(int damage)
     {
-        if (coll.gameObject.CompareTag("Bullet"))
+        currentHealth -= damage;
+        heathBar.fillAmount = (float)currentHealth / maxHealth;
+        if (currentHealth <= 0)
         {
-            currentHealth -= 20;
-            heathBar.fillAmount = (float)currentHealth / maxHealth;
-            if (currentHealth <= 0)
-            {
-                HUD hud = GameObject.FindGameObjectWithTag("HUD").GetComponent<HUD>();
-                hud.AddScore(Score);
-                hud.AddCoin(Coin);
-                Instantiate<GameObject>(smokeExplosion, this.gameObject.transform.position, Quaternion.identity);
-                Destroy(this.gameObject);
-            }
+            HUD hud = GameObject.FindGameObjectWithTag("HUD").GetComponent<HUD>();
+            hud.AddScore(Score);
+            hud.AddCoin(Coin);
+            Instantiate<GameObject>(smokeExplosion, this.gameObject.transform.position, Quaternion.identity);
+            Destroy(this.gameObject);
         }
     }
+    //void OnCollisionEnter2D(Collision2D coll)
+    //{
+    //    if (coll.gameObject.CompareTag("Bullet"))
+    //    {
+    //        currentHealth -= 20;
+    //        heathBar.fillAmount = (float)currentHealth / maxHealth;
+    //        if (currentHealth <= 0)
+    //        {
+    //            HUD hud = GameObject.FindGameObjectWithTag("HUD").GetComponent<HUD>();
+    //            hud.AddScore(Score);
+    //            hud.AddCoin(Coin);
+    //            Instantiate<GameObject>(smokeExplosion, this.gameObject.transform.position, Quaternion.identity);
+    //            Destroy(this.gameObject);
+    //        }
+    //    }
+    //}
 }

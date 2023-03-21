@@ -16,13 +16,13 @@ public class UIController : MonoBehaviour
     [SerializeField]
     string towerPlacementTag;
 
-    public GameObject btnBuyArrowTower;
-    public GameObject btnBuyMagicTower;
-    public GameObject btnBuyStoneTower;
-    public GameObject btnBuyBoomTower;
+    public Button btnBuyArrowTower;
+    public Button btnBuyMagicTower;
+    public Button btnBuyStoneTower;
+    public Button btnBuyBoomTower;
 
     public GameObject btnSellTower;
-    public GameObject btnUpgradeTower;
+    public Button btnUpgradeTower;
     public Text level;
     private void Awake()
     {
@@ -47,12 +47,57 @@ public class UIController : MonoBehaviour
         CloseBtnTowerBuildOption();
         btnBuyTower.transform.DOKill();
         btnBuyTower.SetActive(false);
+        checkCoinBuyTower();
         btnBuyTower.transform.position = new Vector3(targetPosition.position.x, targetPosition.position.y, btnBuyTower.transform.position.z);
         btnBuyTower.transform.localScale = new Vector3(0, 0, 0);
+
         btnBuyTower.SetActive(true);
         btnBuyTower.transform.DOScale(1, 0.5f).SetEase(Ease.OutBack);
         towerPlacementTag = placementTag;
     }
+
+    public void checkCoinBuyTower()
+    {
+        HUD hud = GameObject.FindGameObjectWithTag("HUD").GetComponent<HUD>();
+        int coin = hud.coin;
+        if(coin >= 400)
+        {
+            btnBuyArrowTower.interactable = true;
+            btnBuyMagicTower.interactable = true;
+            btnBuyStoneTower.interactable = true;
+            btnBuyBoomTower.interactable= true;
+        }
+        if(coin >= 250 && coin < 400)
+        {
+            btnBuyArrowTower.interactable = true;
+            btnBuyMagicTower.interactable = true;
+            btnBuyStoneTower.interactable = true;
+            btnBuyBoomTower.interactable = false;
+        }
+        if(coin >= 150 && coin < 250)
+        {
+            btnBuyArrowTower.interactable = true;
+            btnBuyMagicTower.interactable = true;
+            btnBuyStoneTower.interactable = false;
+            btnBuyBoomTower.interactable = false;
+        }
+        if(coin >= 100 && coin < 150)
+        {
+            btnBuyArrowTower.interactable = true;
+            btnBuyMagicTower.interactable = false;
+            btnBuyStoneTower.interactable = false;
+            btnBuyBoomTower.interactable = false;
+        }
+        if(coin < 100)
+        {
+            btnBuyArrowTower.interactable = false;
+            btnBuyMagicTower.interactable = false;
+            btnBuyStoneTower.interactable = false;
+            btnBuyBoomTower.interactable = false;
+        }
+    }
+
+ 
 
     public void CloseBtnBuyTower()
     {
@@ -66,6 +111,7 @@ public class UIController : MonoBehaviour
         CloseAttackRange();
 
         SetPrice(tower);
+        checkCoinUpdate();
         btnTowerBuildOption.transform.DOKill();
         btnTowerBuildOption.SetActive(false);
         btnTowerBuildOption.transform.position = new Vector3(targetPosition.position.x, targetPosition.position.y, btnTowerBuildOption.transform.position.z);
@@ -112,6 +158,19 @@ public class UIController : MonoBehaviour
         btnSellTower.transform.GetChild(1).GetComponent<Text>().text = Mathf.Round(priceToSell).ToString();
 
     }
+    public void checkCoinUpdate()
+    {
+        HUD hud = GameObject.FindGameObjectWithTag("HUD").GetComponent<HUD>();
+        int price = int.Parse(priceToUpgrade.ToString());
+        if(price > hud.coin)
+        {
+            btnUpgradeTower.interactable = false;
+        }
+        else
+        {
+            btnUpgradeTower.interactable = true;
+        }
+    }
     public void CloseBtnTowerBuildOption()
     {
         CloseAttackRange();
@@ -120,9 +179,11 @@ public class UIController : MonoBehaviour
     }
     public void ButtonUpgradeTower()
     {
-        Debug.Log("jjjjjj");
+
         //AudioController.instance.PlaySound("upgradeTower");
-        //PlayerSetting.instance.Coin -= priceToUpgrade;
+        HUD hud = GameObject.FindGameObjectWithTag("HUD").GetComponent<HUD>();
+        int price = int.Parse(priceToUpgrade.ToString());
+        hud.SubCoin(price);
         CloseBtnTowerBuildOption();
         TowerManager.instance.UpgradeTower(currentTower);
     }
@@ -130,8 +191,10 @@ public class UIController : MonoBehaviour
     public void ButtonSellTower()
     {
         //AudioController.instance.PlaySound("sellTower");
-        //PlayerSetting.instance.Coin += priceToSell;
         CloseBtnTowerBuildOption();
+        HUD hud = GameObject.FindGameObjectWithTag("HUD").GetComponent<HUD>();
+        string price = Mathf.Round(priceToSell).ToString();
+        hud.AddCoin(int.Parse(price));
         Destroy(currentTower);
         GameObject game = GameObject.FindGameObjectWithTag(towerPlacementTag);
         BoxCollider2D coll = game.GetComponent<BoxCollider2D>();

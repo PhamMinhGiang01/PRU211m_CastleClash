@@ -5,11 +5,11 @@ using UnityEngine.UI;
 
 public class MinotaurController : MonoBehaviour
 {
-    int maxHealth = 300;
+    int maxHealth = 1000;
     int Score = 30;
     int Coin = 30;
 
-    int currentHealth = 300;
+    public int currentHealth = 300;
 
     [SerializeField]
     public Image heathBar;
@@ -27,20 +27,33 @@ public class MinotaurController : MonoBehaviour
     {
         
     }
-    void OnCollisionEnter2D(Collision2D coll)
+    public void TakeDamage(int damage)
     {
-        if (coll.gameObject.CompareTag("Bullet"))
+        currentHealth -= damage;
+        heathBar.fillAmount = (float)currentHealth / maxHealth;
+        if (currentHealth <= 0)
         {
-            currentHealth -= 20;
-            heathBar.fillAmount = (float)currentHealth / maxHealth;
-            if (currentHealth <= 0)
-            {
-                HUD hud = GameObject.FindGameObjectWithTag("HUD").GetComponent<HUD>();
-                hud.AddScore(Score);
-                hud.AddCoin(Coin);
-                Instantiate<GameObject>(smokeExplosion, this.gameObject.transform.position, Quaternion.identity);
-                Destroy(this.gameObject);
-            }
+            HUD hud = GameObject.FindGameObjectWithTag("HUD").GetComponent<HUD>();
+            hud.AddScore(Score);
+            hud.AddCoin(Coin);
+            Instantiate<GameObject>(smokeExplosion, this.gameObject.transform.position, Quaternion.identity);
+            Destroy(this.gameObject);
         }
     }
+    //void OnCollisionEnter2D(Collision2D coll)
+    //{
+    //    if (coll.gameObject.CompareTag("Bullet"))
+    //    {
+    //        currentHealth -= 20;
+    //        heathBar.fillAmount = (float)currentHealth / maxHealth;
+    //        if (currentHealth <= 0)
+    //        {
+    //            HUD hud = GameObject.FindGameObjectWithTag("HUD").GetComponent<HUD>();
+    //            hud.AddScore(Score);
+    //            hud.AddCoin(Coin);
+    //            Instantiate<GameObject>(smokeExplosion, this.gameObject.transform.position, Quaternion.identity);
+    //            Destroy(this.gameObject);
+    //        }
+    //    }
+    //}
 }

@@ -16,11 +16,15 @@ public class MagicTowerController : MonoBehaviour
     public float price;
     public float priceUpgrade;
     public int level;
+    public int damage;
+    public int damageIncrease;
     void Start()
     {
         price = 150;
         priceUpgrade = 70;
         level = 1;
+        damage = 60;
+        damageIncrease = 20;
     }
 
     // Update is called once per frame
@@ -50,11 +54,11 @@ public class MagicTowerController : MonoBehaviour
         }
         else
         {
-            SetShoot(monster);
+            StartCoroutine(SetShoot(monster));
         }
     }
 
-    private void SetShoot(GameObject monster)
+    private IEnumerator SetShoot(GameObject monster)
     {
        
         countDown = fireRate;
@@ -68,17 +72,35 @@ public class MagicTowerController : MonoBehaviour
         bullet.transform.localRotation = Quaternion.Euler(new Vector3(0, 0, angle));
 
         float distance = Vector2.Distance(bullet.transform.position, monster.transform.position);
-        float time = distance / 3;
+        float time = distance / 5;
         //AudioController.instance.PlaySound("archerShoot");
         bullet.transform.DOMove(monster.transform.position, time).SetEase(Ease.Linear);
+        yield return new WaitForSeconds(time);
+        Destroy(bullet);
+        if (monster != null)
+        {
+            if (monster.GetComponent<MushroomController>() != null)
+            {
+                monster.GetComponent<MushroomController>().TakeDamage(damage);
+            }
+            if (monster.GetComponent<GoblinController>() != null)
+            {
+                monster.GetComponent<GoblinController>().TakeDamage(damage);
+            }
+            if (monster.GetComponent<MinotaurController>() != null)
+            {
+                monster.GetComponent<MinotaurController>().TakeDamage(damage);
+            }
+            if (monster.GetComponent<DarkWizardController>() != null)
+            {
+                monster.GetComponent<DarkWizardController>().TakeDamage(damage);
+            }
+        }
     }
-
-
 
     private void OnTriggerEnter2D(Collider2D target)
     {
-        UnityEngine.Debug.Log("kkkkk");
-        if (target.gameObject.tag.Equals("Monter"))
+        if (target.gameObject.tag.Equals("Monster"))
         {
             monsters.Add(target.gameObject);
         }
@@ -86,17 +108,58 @@ public class MagicTowerController : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D target)
     {
-
+        if (target.gameObject.tag.Equals("Monster"))
+        {
+            GameObject monster = target.gameObject;
+            if (monster.GetComponent<MushroomController>() != null)
+            {
+                if (monster.GetComponent<MushroomController>().currentHealth <= 0)
+                {
+                    if (monsters.IndexOf(monster) >= 0)
+                    {
+                        monsters.Remove(monster);
+                    }
+                }
+            }
+            if (monster.GetComponent<GoblinController>() != null)
+            {
+                if (monster.GetComponent<GoblinController>().currentHealth <= 0)
+                {
+                    if (monsters.IndexOf(monster) >= 0)
+                    {
+                        monsters.Remove(monster);
+                    }
+                }
+            }
+            if (monster.GetComponent<MinotaurController>() != null)
+            {
+                if (monster.GetComponent<MinotaurController>().currentHealth <= 0)
+                {
+                    if (monsters.IndexOf(monster) >= 0)
+                    {
+                        monsters.Remove(monster);
+                    }
+                }
+            }
+            if (monster.GetComponent<DarkWizardController>() != null)
+            {
+                if (monster.GetComponent<DarkWizardController>().currentHealth <= 0)
+                {
+                    if (monsters.IndexOf(monster) >= 0)
+                    {
+                        monsters.Remove(monster);
+                    }
+                }
+            }
+        }
 
     }
 
     private void OnTriggerExit2D(Collider2D target)
     {
-        if (target.gameObject.tag.Equals("Monter"))
+        if (target.gameObject.tag.Equals("Monster"))
         {
-   
             monsters.Remove(target.gameObject);
-
         }
     }
 }

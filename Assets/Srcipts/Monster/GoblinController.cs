@@ -9,7 +9,7 @@ public class GoblinController : MonoBehaviour
     int Score = 20;
     int Coin = 20;
 
-    int currentHealth = 120;
+    public int currentHealth = 120;
 
     [SerializeField]
     public Image heathBar;
@@ -27,20 +27,33 @@ public class GoblinController : MonoBehaviour
     {
         
     }
-    void OnCollisionEnter2D(Collision2D coll)
+    public void TakeDamage(int damage)
     {
-        if (coll.gameObject.CompareTag("Bullet"))
+        currentHealth -= damage;
+        heathBar.fillAmount = (float)currentHealth / maxHealth;
+        if (currentHealth <= 0)
         {
-            currentHealth -= 20;
-            heathBar.fillAmount = (float)currentHealth / maxHealth;
-            if (currentHealth <= 0)
-            {
-                HUD hud = GameObject.FindGameObjectWithTag("HUD").GetComponent<HUD>();
-                hud.AddScore(Score);
-                hud.AddCoin(Coin);
-                Instantiate<GameObject>(smokeExplosion, this.gameObject.transform.position, Quaternion.identity);
-                Destroy(this.gameObject);
-            }
+            HUD hud = GameObject.FindGameObjectWithTag("HUD").GetComponent<HUD>();
+            hud.AddScore(Score);
+            hud.AddCoin(Coin);
+            Instantiate<GameObject>(smokeExplosion, this.gameObject.transform.position, Quaternion.identity);
+            Destroy(this.gameObject);
         }
     }
+    //void OnCollisionEnter2D(Collision2D coll)
+    //{
+    //    if (coll.gameObject.CompareTag("Bullet"))
+    //    {
+    //        currentHealth -= 20;
+    //        heathBar.fillAmount = (float)currentHealth / maxHealth;
+    //        if (currentHealth <= 0)
+    //        {
+    //            HUD hud = GameObject.FindGameObjectWithTag("HUD").GetComponent<HUD>();
+    //            hud.AddScore(Score);
+    //            hud.AddCoin(Coin);
+    //            Instantiate<GameObject>(smokeExplosion, this.gameObject.transform.position, Quaternion.identity);
+    //            Destroy(this.gameObject);
+    //        }
+    //    }
+    //}
 }

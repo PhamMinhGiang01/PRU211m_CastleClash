@@ -113,7 +113,7 @@ public class GameplayController : MonoBehaviour
                     hit = Physics2D.Raycast(ray.origin, ray.direction, Mathf.Infinity, towerLayer);
                     if (hit.collider != null)
                     {
-                        Debug.Log(hit.collider.tag);
+                       
                         if (hit.collider.tag.Contains("Tower"))
                         {
                             

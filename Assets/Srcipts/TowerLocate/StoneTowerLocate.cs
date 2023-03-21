@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class StoneTowerLocate : MonoBehaviour
 {
@@ -20,6 +21,9 @@ public class StoneTowerLocate : MonoBehaviour
 
     public void Click()
     {
+        HUD hud = GameObject.FindGameObjectWithTag("HUD").GetComponent<HUD>();
+        string coin = UIController.instance.btnBuyStoneTower.transform.GetChild(1).GetComponent<Text>().text;
+        hud.SubCoin(int.Parse(coin));
         GameObject newTower = Instantiate(tower, GameManage.position, Quaternion.identity);
         newTower.GetComponent<TowerController>().towerPlacementTag = GameManage.tagPlace;
         //GameObject.FindGameObjectWithTag(GameManage.tag).SetActive(false);

@@ -299,7 +299,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dead2ca9dbe9e5d41be5ee72193805f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 6
+  speed: 1
 --- !u!61 &6533880793032917923
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -338,6 +338,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15c67b8edadfbcd49be3880550ed6040, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentHealth: 100
   heathBar: {fileID: 8915720382036526701}
   smokeExplosion: {fileID: 77201920076611182, guid: efebb8691ffeeed42902bf9bda6aea54, type: 3}
 --- !u!1 &7311359071447576535

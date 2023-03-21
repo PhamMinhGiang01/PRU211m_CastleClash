@@ -12,7 +12,7 @@ public class HUD : MonoBehaviour
     [SerializeField]
     public TextMeshProUGUI coinText;
     int score = 0;
-    int coin = 500;
+    public int coin = 500;
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +34,11 @@ public class HUD : MonoBehaviour
     public void AddCoin(int c)
     {
         coin += c;
+        coinText.text = coin.ToString();
+    }
+    public void SubCoin(int c)
+    {
+        coin -= c;
         coinText.text = coin.ToString();
     }
 }

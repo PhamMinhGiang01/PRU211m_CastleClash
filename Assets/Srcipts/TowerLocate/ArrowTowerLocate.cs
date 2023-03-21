@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
+using UnityEngine.UI;
 
 public class ArrowTowerLocate : MonoBehaviour
 {
@@ -47,6 +49,9 @@ public class ArrowTowerLocate : MonoBehaviour
     }
     public void click()
     {
+        HUD hud = GameObject.FindGameObjectWithTag("HUD").GetComponent<HUD>();
+        string coin = UIController.instance.btnBuyArrowTower.transform.GetChild(1).GetComponent<Text>().text;
+        hud.SubCoin(int.Parse(coin));
         GameObject newTower = Instantiate(tower, GameManage.position, Quaternion.identity);
         newTower.GetComponent<TowerController>().towerPlacementTag= GameManage.tagPlace;
         //GameObject.FindGameObjectWithTag(GameManage.tag).SetActive(false);

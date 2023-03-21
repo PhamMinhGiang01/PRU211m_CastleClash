@@ -10,7 +10,7 @@ public class MushroomController : MonoBehaviour
     int Score = 10;
     int Coin = 10;
 
-    int currentHealth = 100;
+    public int currentHealth = 100;
 
     [SerializeField]
     public Image heathBar;
@@ -31,20 +31,17 @@ public class MushroomController : MonoBehaviour
 
     }
 
-    void OnCollisionEnter2D(Collision2D coll)
+    public void TakeDamage(int damage)
     {
-        if (coll.gameObject.CompareTag("Bullet"))
+        currentHealth -= damage;
+        heathBar.fillAmount = (float)currentHealth / Health;
+        if (currentHealth <= 0)
         {
-            currentHealth -= 20;
-            heathBar.fillAmount = (float) currentHealth/Health;
-            if(currentHealth <= 0)
-            {
-                HUD hud = GameObject.FindGameObjectWithTag("HUD").GetComponent<HUD>();
-                hud.AddScore(Score);
-                hud.AddCoin(Coin);
-                Instantiate<GameObject>(smokeExplosion, this.gameObject.transform.position, Quaternion.identity);
-                Destroy(this.gameObject);
-            }
+            HUD hud = GameObject.FindGameObjectWithTag("HUD").GetComponent<HUD>();
+            hud.AddScore(Score);
+            hud.AddCoin(Coin);
+            Instantiate<GameObject>(smokeExplosion, this.gameObject.transform.position, Quaternion.identity);
+            Destroy(this.gameObject);
         }
     }
 }

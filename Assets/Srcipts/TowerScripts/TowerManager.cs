@@ -72,11 +72,18 @@ public class TowerManager : MonoBehaviour
         {
         
                 //tower.GetComponent<ArrowTowerController>().level++;
-                int nextLevel = tower.GetComponent<ArrowTowerController>().level++;
+                int nextLevel = ++tower.GetComponent<ArrowTowerController>().level;
+                 
                 float priceUpgradeBefore = tower.GetComponent<ArrowTowerController>().priceUpgrade;
+                int damageIncreasBefore = tower.GetComponent<ArrowTowerController>().damageIncrease;
+
                 tower.GetComponent<ArrowTowerController>().price += priceUpgradeBefore;
-                tower.GetComponent<ArrowTowerController>().priceUpgrade = priceUpgradeBefore + 10 + 2 * ((nextLevel++) - 1);
-            if(nextLevel == 10)
+                tower.GetComponent<ArrowTowerController>().priceUpgrade = priceUpgradeBefore + 10 + 2 * ((nextLevel+1) - 3);
+                tower.GetComponent<ArrowTowerController>().damage += damageIncreasBefore;
+                tower.GetComponent<ArrowTowerController>().damageIncrease = damageIncreasBefore + 4 + 2 * ((nextLevel+1) - 3);
+
+
+            if (nextLevel == 10)
             {
                 SpriteRenderer spriteRenderer = tower.GetComponent<SpriteRenderer>();
                 SpriteRenderer spriteRenderer1 = tower.transform.GetChild(0).GetComponent<SpriteRenderer>();
@@ -98,10 +105,15 @@ public class TowerManager : MonoBehaviour
         }
         else if (tower.GetComponent<MagicTowerController>() != null)
         {
-            int nextLevel = tower.GetComponent<MagicTowerController>().level++;
+            int nextLevel = ++tower.GetComponent<MagicTowerController>().level;
+
             float priceUpgradeBefore = tower.GetComponent<MagicTowerController>().priceUpgrade;
+            int damageIncreasBefore = tower.GetComponent<MagicTowerController>().damageIncrease;
+
             tower.GetComponent<MagicTowerController>().price += priceUpgradeBefore;
-            tower.GetComponent<MagicTowerController>().priceUpgrade = priceUpgradeBefore + 10 + 2 * ((nextLevel++) - 1);
+            tower.GetComponent<MagicTowerController>().priceUpgrade = priceUpgradeBefore + 10 + 2 * ((nextLevel + 1) - 3);
+            tower.GetComponent<MagicTowerController>().damage += damageIncreasBefore;
+            tower.GetComponent<MagicTowerController>().damageIncrease = damageIncreasBefore + 4 + 2 * ((nextLevel + 1) - 3);
             if (nextLevel == 10)
             {
                 SpriteRenderer spriteRenderer = tower.GetComponent<SpriteRenderer>();
@@ -124,10 +136,15 @@ public class TowerManager : MonoBehaviour
         }
         else if (tower.GetComponent<StoneTowerController>() != null)
         {
-            int nextLevel = tower.GetComponent<StoneTowerController>().level++;
+            int nextLevel = ++tower.GetComponent<StoneTowerController>().level;
+
             float priceUpgradeBefore = tower.GetComponent<StoneTowerController>().priceUpgrade;
+            int damageIncreasBefore = tower.GetComponent<StoneTowerController>().damageIncrease;
+
             tower.GetComponent<StoneTowerController>().price += priceUpgradeBefore;
-            tower.GetComponent<StoneTowerController>().priceUpgrade = priceUpgradeBefore + 10 + 2 * ((nextLevel++) - 1);
+            tower.GetComponent<StoneTowerController>().priceUpgrade = priceUpgradeBefore + 10 + 2 * ((nextLevel + 1) - 3);
+            tower.GetComponent<StoneTowerController>().damage += damageIncreasBefore;
+            tower.GetComponent<StoneTowerController>().damageIncrease = damageIncreasBefore + 4 + 2 * ((nextLevel + 1) - 3);
             if (nextLevel == 10)
             {
                 SpriteRenderer spriteRenderer = tower.GetComponent<SpriteRenderer>();
@@ -150,10 +167,15 @@ public class TowerManager : MonoBehaviour
         }
         else if (tower.GetComponent<BoomTowerController>() != null)
         {
-            int nextLevel = tower.GetComponent<BoomTowerController>().level++;
+            int nextLevel = ++tower.GetComponent<BoomTowerController>().level;
+
             float priceUpgradeBefore = tower.GetComponent<BoomTowerController>().priceUpgrade;
+            int damageIncreasBefore = tower.GetComponent<BoomTowerController>().damageIncrease;
+
             tower.GetComponent<BoomTowerController>().price += priceUpgradeBefore;
-            tower.GetComponent<BoomTowerController>().priceUpgrade = priceUpgradeBefore + 10 + 2 * ((nextLevel++) - 1);
+            tower.GetComponent<BoomTowerController>().priceUpgrade = priceUpgradeBefore + 10 + 2 * ((nextLevel + 1) - 3);
+            tower.GetComponent<BoomTowerController>().damage += damageIncreasBefore;
+            tower.GetComponent<BoomTowerController>().damageIncrease = damageIncreasBefore + 4 + 2 * ((nextLevel + 1) - 3);
             if (nextLevel == 10)
             {
                 SpriteRenderer spriteRenderer = tower.GetComponent<SpriteRenderer>();
