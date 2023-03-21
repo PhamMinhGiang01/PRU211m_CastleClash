@@ -5,7 +5,7 @@ using UnityEngine;
 public class TowerController : MonoBehaviour
 {
     public static TowerController instance;
-
+    public int towerPlacementIndex;
     public string towerPlacementTag;
 
     private void Awake()

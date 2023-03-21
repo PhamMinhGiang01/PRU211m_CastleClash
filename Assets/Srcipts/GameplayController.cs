@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.EventSystems;
+using TMPro;
 
 public class GameplayController : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class GameplayController : MonoBehaviour
     //public SpriteRenderer background;
     int fingerID = -1;
     Vector3 touchStart;
+    public TextMeshProUGUI waveText;
+
     //public SpriteRenderer map;
     public LayerMask towerPlacementLayer;
     public LayerMask towerLayer;
@@ -21,15 +24,16 @@ public class GameplayController : MonoBehaviour
 
     private void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-        }
-//        Camera.main.orthographicSize = background.bounds.size.x * Screen.height / Screen.width * 0.5f;
-//#if !UNITY_EDITOR
-        fingerID = 0; 
-//#endif
+
+        instance = this;
+        //        Camera.main.orthographicSize = background.bounds.size.x * Screen.height / Screen.width * 0.5f;
+        //#if !UNITY_EDITOR
+        fingerID = 0;
+        //#endif
     }
+
+    public void UpdateWave(int wave) => waveText.text = wave.ToString();
+
 
     // Start is called before the first frame update
     void Start()
@@ -39,6 +43,29 @@ public class GameplayController : MonoBehaviour
         //PlayerSetting.instance.Coin = 300;
         //PlayerSetting.instance.Health = 15;
     }
+
+
+    public void SetData(int health, int coin, int wave, int score)
+    {
+        PlayerPrefs.SetInt("score", score);
+        PlayerPrefs.SetInt("health", health);
+        PlayerPrefs.SetInt("coin", coin);
+       if(wave > 0) PlayerPrefs.SetInt("wave", wave  -1);
+       else PlayerPrefs.SetInt("wave", wave);
+    }
+
+    public void GetData()
+    {
+        DOVirtual.DelayedCall(.2f, () =>
+        {
+            HUD.instance.SetScore(PlayerPrefs.GetInt("score"));
+            CastleController.instance.SetHealth(PlayerPrefs.GetInt("health"));
+            HUD.instance.SetCoin(PlayerPrefs.GetInt("coin"));
+             Wave.instance.SetWave(PlayerPrefs.GetInt("wave"));
+        });
+
+    }
+
 
     // Update is called once per frame
     void Update()
@@ -100,36 +127,36 @@ public class GameplayController : MonoBehaviour
                 {
                     if (hit.collider.tag.Contains("place"))
                     {
-                       
-                        GameManage.position= GameObject.FindGameObjectWithTag(hit.collider.tag).transform.position;
-                        GameManage.tagPlace = hit.collider.tag;  
+
+                        GameManage.position = GameObject.FindGameObjectWithTag(hit.collider.tag).transform.position;
+                        GameManage.tagPlace = hit.collider.tag;
                         UIController.instance.OpenBtnBuyTower(hit.collider.transform, hit.collider.tag);
                     }
                 }
                 else
                 {
                     UIController.instance.CloseBtnBuyTower();
-                    
+
                     hit = Physics2D.Raycast(ray.origin, ray.direction, Mathf.Infinity, towerLayer);
                     if (hit.collider != null)
                     {
-                       
+
                         if (hit.collider.tag.Contains("Tower"))
                         {
-                            
+
                             //GameManage.tower = hit.collider.gameObject.transform.parent.gameObject;
                             UIController.instance.OpenBtnTowerBuildOption(hit.collider.transform, hit.collider.gameObject.transform.parent.gameObject);
                         }
                     }
                     else
                     {
-                        
+
                         UIController.instance.CloseBtnTowerBuildOption();
                     }
                 }
 
 
-             }
+            }
         }
 
         //if (!UIController.instance.btnBuyTower.activeSelf && !UIController.instance.btnUpgradeAndSellTower.activeSelf)
@@ -172,5 +199,6 @@ public class GameplayController : MonoBehaviour
 
     //    return new Vector3(newX, newy, targetPosition.z);
     //}
+
 
 }

@@ -156,6 +156,37 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &1301214417003204085
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2443777843372879085}
+  m_Layer: 0
+  m_Name: Tower
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2443777843372879085
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1301214417003204085}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.9777038, y: 1.0849991, z: 10.024827}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1968656270619288033}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1968656270098085141
 GameObject:
   m_ObjectHideFlags: 0
@@ -1046,6 +1077,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreText: {fileID: 1968656270442475037}
   coinText: {fileID: 1968656270127041054}
+  score: 0
   coin: 500
 --- !u!1 &1968656270351220335
 GameObject:
@@ -2317,6 +2349,7 @@ Transform:
   - {fileID: 1968656271163745335}
   - {fileID: 1968656270216527378}
   - {fileID: 1968656271279715870}
+  - {fileID: 2443777843372879085}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2332,6 +2365,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e3a64e5b57f57d4b9bea2c8a4d2bf47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waveText: {fileID: 1968656270899136777}
   towerPlacementLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -2350,6 +2384,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44e01f0e212ed3c4799770a78d9a389f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  towerParent: {fileID: 2443777843372879085}
+  towerPlacementParent: {fileID: 1968656270989380846}
+  effectSpawnTower: {fileID: 8612104997813376609, guid: 75ca748b37cf6e249b3f4dfc8a570975, type: 3}
   arrowTower2: {fileID: 1116405684, guid: b94ca98d1b34e4f47b059b60ec5f50c8, type: 3}
   arrowWeapon2: {fileID: 1319069359, guid: ad82c735eda39c74eb2aca496634af15, type: 3}
   arrowTower3: {fileID: 1734482954, guid: b94ca98d1b34e4f47b059b60ec5f50c8, type: 3}
@@ -2378,6 +2415,10 @@ MonoBehaviour:
   magicPrice: 0
   stonePrice: 0
   boomPrice: 0
+  arrowTower: {fileID: 9128044777569750778, guid: 3f18a2c77c7459a46affb08415f486cf, type: 3}
+  stoneTower: {fileID: 4366176367953300280, guid: 5d1331d990c4b9d4eb62aa0cbdc9c184, type: 3}
+  boomTower: {fileID: 1335909397702970843, guid: 36acb0a195dde534d986c80dcf1a0a53, type: 3}
+  magicTower: {fileID: 3513353872411680108, guid: 1a8ce3f12c0c4dd4db84a969c18f2a70, type: 3}
 --- !u!1 &1968656270622529644
 GameObject:
   m_ObjectHideFlags: 0
@@ -4391,6 +4432,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textHealthCastle: {fileID: 1968656270587976456}
+  health: 20
 --- !u!1 &1968656271043454013
 GameObject:
   m_ObjectHideFlags: 0
@@ -19819,6 +19861,7 @@ MonoBehaviour:
   Minotaur: {fileID: 8979510013805217809, guid: 97464e84d48924c468f5cc39397b17b2, type: 3}
   DarkWizard: {fileID: 9114578140840724532, guid: 71b3ed23d8855494eafc0799adcdd353, type: 3}
   StartMonster: {fileID: 3755363845277501941}
+  wave: 0
 --- !u!1 &1968656271943299307
 GameObject:
   m_ObjectHideFlags: 0
