@@ -105,8 +105,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4236984827755532949}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -19.9154, y: -2.4829, z: 0}
-  m_LocalScale: {x: 1.681688, y: 1.7347277, z: 1}
+  m_LocalPosition: {x: -20.729, y: -2.173, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 510742039257337639}
@@ -353,8 +353,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0.017477036, y: 0.234}
-  m_SizeDelta: {x: 5, y: 0.3}
+  m_AnchoredPosition: {x: 0.021, y: 0.252}
+  m_SizeDelta: {x: 5, y: 0.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &7760895458921612494
 Canvas:
@@ -375,7 +375,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!114 &3817881439159162047
 MonoBehaviour:

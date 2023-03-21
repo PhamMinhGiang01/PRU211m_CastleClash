@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class GoblinController : MonoBehaviour
 {
-    int maxHealth = 120;
+    int maxHealth = 150;
     int Score = 20;
     int Coin = 20;
 

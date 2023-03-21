@@ -93,9 +93,10 @@ public class Wave : MonoBehaviour
     {
         for (int i = 0; i < (3 * wave); i++)
         {
-            var mushroom = Instantiate<GameObject>(Mushroom, StartMonster.transform.position, Quaternion.identity);
-            mushroom.transform.SetParent(transform);
-            yield return new WaitForSeconds(0.2f);
+            Instantiate<GameObject>(Mushroom, StartMonster.transform.position, Quaternion.identity);
+            //var mushroom = Instantiate<GameObject>(Mushroom, StartMonster.transform.position, Quaternion.identity);
+            //mushroom.transform.SetParent(transform);
+            yield return new WaitForSeconds(0.5f);
         }
     }
 
@@ -103,9 +104,10 @@ public class Wave : MonoBehaviour
     {
         for (int i = 0; i < (3 * (wave - 3)); i++)
         {
-            var goblin = Instantiate<GameObject>(Goblin, StartMonster.transform.position, Quaternion.identity);
-            goblin.transform.SetParent(transform);
-            yield return new WaitForSeconds(0.2f);
+            Instantiate<GameObject>(Goblin, StartMonster.transform.position, Quaternion.identity);
+            //var goblin = Instantiate<GameObject>(Goblin, StartMonster.transform.position, Quaternion.identity);
+            //goblin.transform.SetParent(transform);
+            yield return new WaitForSeconds(0.5f);
         }
 
     }
@@ -114,9 +116,10 @@ public class Wave : MonoBehaviour
     {
         for (int i = 0; i < (3 * (wave - 6)); i++)
         {
-            var mino = Instantiate<GameObject>(Minotaur, StartMonster.transform.position, Quaternion.identity);
-            mino.transform.SetParent(transform);
-            yield return new WaitForSeconds(0.2f);
+            Instantiate<GameObject>(Minotaur, StartMonster.transform.position, Quaternion.identity);
+            //var mino = Instantiate<GameObject>(Minotaur, StartMonster.transform.position, Quaternion.identity);
+            //mino.transform.SetParent(transform);
+            yield return new WaitForSeconds(0.5f);
         }
 
     }
@@ -125,9 +128,10 @@ public class Wave : MonoBehaviour
     {
         for (int i = 0; i < (3 * (wave - 9)); i++)
         {
-            var dark = Instantiate<GameObject>(DarkWizard, StartMonster.transform.position, Quaternion.identity);
-            dark.transform.SetParent(transform);
-            yield return new WaitForSeconds(0.2f);
+            Instantiate<GameObject>(DarkWizard, StartMonster.transform.position, Quaternion.identity);
+            //var dark = Instantiate<GameObject>(DarkWizard, StartMonster.transform.position, Quaternion.identity);
+            //dark.transform.SetParent(transform);
+            yield return new WaitForSeconds(0.5f);
         }
 
     }

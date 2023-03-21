@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class DarkWizardController : MonoBehaviour
 {
-    int maxHealth = 200;
+    int maxHealth = 800;
     int Score = 50;
     int Coin = 50;
     public int currentHealth = 200;
