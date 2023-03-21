@@ -8,6 +8,9 @@ public class TowerManager : MonoBehaviour
 {
     // Start is called before the first frame update
     public static TowerManager instance;
+    public Transform towerParent;
+    public Transform towerPlacementParent;
+    public GameObject effectSpawnTower;
     public Sprite arrowTower2;
     public Sprite arrowWeapon2;
     public Sprite arrowTower3;
@@ -40,6 +43,11 @@ public class TowerManager : MonoBehaviour
     public float magicPrice;
     public float stonePrice;
     public float boomPrice;
+
+    public GameObject arrowTower;
+    public GameObject stoneTower;
+    public GameObject boomTower;
+    public GameObject magicTower;
 
 
     private void Awake()
@@ -81,7 +89,6 @@ public class TowerManager : MonoBehaviour
                 tower.GetComponent<ArrowTowerController>().priceUpgrade = priceUpgradeBefore + 10 + 2 * ((nextLevel+1) - 3);
                 tower.GetComponent<ArrowTowerController>().damage += damageIncreasBefore;
                 tower.GetComponent<ArrowTowerController>().damageIncrease = damageIncreasBefore + 4 + 2 * ((nextLevel+1) - 3);
-
 
             if (nextLevel == 10)
             {
@@ -198,9 +205,107 @@ public class TowerManager : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    //public IEnumerator LoadTower(GameObject tower, int towerPlacementIndex, int level)
+    //{
+    //    Transform towerPlacement = towerPlacementParent.GetChild(towerPlacementIndex);
+
+    //    GameObject effectSpawn = Instantiate(effectSpawnTower);
+    //    effectSpawn.transform.position = towerPlacement.position;
+
+    //    yield return new WaitForSeconds(0.4f);
+
+    //    GameObject newTower = Instantiate(tower);
+    //    newTower.transform.SetParent(towerParent);
+    //    towerPlacement.gameObject.SetActive(false);
+    //    newTower.transform.position = towerPlacement.position;
+    //    newTower.GetComponent<TowerController>().towerPlacementIndex = towerPlacementIndex;
+
+    //    if (newTower.GetComponent<ArrowTowerController>() != null)
+    //    {
+    //        if (level == 1)
+    //        {
+    //        }
+    //        else if (level == 2)
+    //        {
+    //            StartCoroutine(UpgradeTower(newTower));
+    //        }
+    //        else if (level == 3)
+    //        {
+    //            StartCoroutine(UpgradeTower(newTower));
+    //            StartCoroutine(UpgradeTower(newTower));
+    //        }
+    //        else if (level == 4)
+    //        {
+    //            StartCoroutine(UpgradeTower(newTower));
+    //            StartCoroutine(UpgradeTower(newTower));
+    //            StartCoroutine(UpgradeTower(newTower));
+    //        }
+
+
+    //    }
+    //    else if (newTower.GetComponent<StoneTowerController>() != null)
+    //    {
+    //        if (level == 1)
+    //        {
+    //        }
+    //        else if (level == 2)
+    //        {
+    //            StartCoroutine(UpgradeTower(newTower));
+    //        }
+    //        else if (level == 3)
+    //        {
+    //            StartCoroutine(UpgradeTower(newTower));
+    //            StartCoroutine(UpgradeTower(newTower));
+    //        }
+    //        else if (level == 4)
+    //        {
+    //            StartCoroutine(UpgradeTower(newTower));
+    //            StartCoroutine(UpgradeTower(newTower));
+    //            StartCoroutine(UpgradeTower(newTower));
+    //        }
+    //    }
+    //    else if (newTower.GetComponent<MagicTowerController>() != null)
+    //    {
+    //        if (level == 1)
+    //        {
+    //        }
+    //        else if (level == 2)
+    //        {
+    //            StartCoroutine(UpgradeTower(newTower));
+    //        }
+    //        else if (level == 3)
+    //        {
+    //            StartCoroutine(UpgradeTower(newTower));
+    //            StartCoroutine(UpgradeTower(newTower));
+    //        }
+    //        else if (level == 4)
+    //        {
+    //            StartCoroutine(UpgradeTower(newTower));
+    //            StartCoroutine(UpgradeTower(newTower));
+    //            StartCoroutine(UpgradeTower(newTower));
+    //        }
+    //    }
+    //    else if (newTower.GetComponent<MagicTowerController>() != null)
+    //    {
+    //        if (level == 1)
+    //        {
+    //        }
+    //        else if (level == 2)
+    //        {
+    //            StartCoroutine(UpgradeTower(newTower));
+    //        }
+    //        else if (level == 3)
+    //        {
+    //            StartCoroutine(UpgradeTower(newTower));
+    //            StartCoroutine(UpgradeTower(newTower));
+    //        }
+    //        else if (level == 4)
+    //        {
+    //            StartCoroutine(UpgradeTower(newTower));
+    //            StartCoroutine(UpgradeTower(newTower));
+    //            StartCoroutine(UpgradeTower(newTower));
+    //        }
+    //    }
+
+    //}
 }

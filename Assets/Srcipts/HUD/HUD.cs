@@ -6,13 +6,18 @@ using UnityEngine;
 public class HUD : MonoBehaviour
 {
 
+    public static HUD instance;
     [SerializeField]
     public TextMeshProUGUI scoreText;
 
     [SerializeField]
     public TextMeshProUGUI coinText;
-    int score = 0;
+    public int score = 0;
     public int coin = 500;
+    private void Awake()
+    {
+        instance = this;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -24,8 +29,11 @@ public class HUD : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
+
+    public void SetCoin(int cointPre) => coinText.text = cointPre.ToString();
+    public void SetScore(int scorePre) => scoreText.text = scorePre.ToString();
     public void AddScore(int s)
     {
         score += s;
