@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class MushroomController : MonoBehaviour
 {
-    int Health = 100;
+    int Health = 200;
     int Score = 10;
     int Coin = 10;
 
