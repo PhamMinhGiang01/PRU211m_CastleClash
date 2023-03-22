@@ -1416,10 +1416,10 @@ RectTransform:
   m_Father: {fileID: 1787904477}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0.8033439, y: 0.3128958}
   m_AnchorMax: {x: 0.8033439, y: 0.5}
-  m_AnchoredPosition: {x: -34, y: 0}
-  m_SizeDelta: {x: 36.151, y: 100}
+  m_AnchoredPosition: {x: -53, y: 17}
+  m_SizeDelta: {x: 92.151, y: 74}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1006683493
 MonoBehaviour:
@@ -2602,8 +2602,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -33}
-  m_SizeDelta: {x: 269.61, y: 138.96}
+  m_AnchoredPosition: {x: 0, y: -42}
+  m_SizeDelta: {x: 185.87, y: 138.96}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1787904478
 MonoBehaviour:
@@ -3672,7 +3672,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   isPopupOpen: 0
-  st: {fileID: 0}
+  st: {fileID: 950013600335836655}
   isBtn: 0
 --- !u!1 &950013600335836654
 GameObject:
@@ -3712,7 +3712,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 266.26617, y: -99.52106}
+  m_AnchoredPosition: {x: -17, y: -99}
   m_SizeDelta: {x: 572.3276, y: 138.9579}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &950013600338428080
@@ -4059,7 +4059,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   isPopupOpen: 0
-  st: {fileID: 0}
+  st: {fileID: 950013600546549412}
   isBtn: 0
 --- !u!1 &950013600563550699
 GameObject:
@@ -4998,7 +4998,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &950013601457430394
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5018,7 +5018,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -318.09, y: -99.521}
+  m_AnchoredPosition: {x: -313, y: -83}
   m_SizeDelta: {x: 528.51, y: 138.9579}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &950013601457430395
@@ -5077,7 +5077,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1236111873}
         m_TargetAssemblyTypeName: UIController2, Assembly-CSharp
-        m_MethodName: ButtonRestart
+        m_MethodName: ButtonPlay
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6723,5 +6723,5 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   isPopupOpen: 0
-  st: {fileID: 0}
+  st: {fileID: 7233968619479243535}
   isBtn: 0
