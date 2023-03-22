@@ -4,46 +4,23 @@ using UnityEngine.UI;
 public class ArrowTowerLocate : MonoBehaviour
 {
     public static ArrowTowerLocate instance;
-    //[SerializeField]
-    //GameObject bullet;
-    //int level;
-    //int gold;
-    //int goldUpdate;
-    //int goldUpdateBefore;
-    //int damage;
-    //int damageIncrease;
-    //int damageIncreasBefore;
-    //float speed;
-    //float scope;
+
     [SerializeField]
     GameObject tower;
-    string tag = GameManage.tagPlace;
+ 
 
 
-    //// Start is called before the first frame update
+    // Start is called before the first frame update
     //void Start()
     //{
-    //    level = 1;
-    //    damage = 50;
     //}
 
-    //// Update is called once per frame
+    // Update is called once per frame
     //void Update()
     //{
-    //    GameObject monter = GameObject.FindGameObjectWithTag("Monter");
-    //    if(Vector3.Distance(gameObject.transform.position, monter.transform.position) < 1)
-    //    {
-    //        Instantiate(bullet, gameObject.transform.position, Quaternion.identity);
-    //    }
+ 
     //}
-    //bool CanPlaceTower()
-    //{
-    //    return tower == null;
-    //}
-    public string GetPlaceTag()
-    {
-        return tag;
-    }
+
     public void click()
     {
         HUD hud = GameObject.FindGameObjectWithTag("HUD").GetComponent<HUD>();

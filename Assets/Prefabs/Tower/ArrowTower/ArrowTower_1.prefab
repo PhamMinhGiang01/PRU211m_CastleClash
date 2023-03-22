@@ -441,6 +441,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3777982fc02d90247873894f8805378d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  towerPlacementIndex: 0
   towerPlacementTag: 
 --- !u!114 &-2616806414661266875
 MonoBehaviour:
@@ -460,6 +461,8 @@ MonoBehaviour:
   price: 0
   priceUpgrade: 0
   level: 0
+  damage: 0
+  damageIncrease: 0
 --- !u!50 &6372158825285768050
 Rigidbody2D:
   serializedVersion: 4

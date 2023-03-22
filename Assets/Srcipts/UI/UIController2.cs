@@ -49,6 +49,7 @@ public class UIController2 : MonoBehaviour
         yield return new WaitForSeconds(1f);
         AudioController.instance.PlaySound("ingame");
         GameObject gameplay = Instantiate(gameplayPrefab, gameplayParent);
+        GameManage.gameplayPrefab= gameplay;
         gameplay.transform.position = Vector3.zero;
         pnlHome.SetActive(false);
         pnlIngame.SetActive(true);
@@ -320,7 +321,7 @@ public class UIController2 : MonoBehaviour
 
 
 
-        Destroy(gameplayParent.GetChild(0).gameObject);
+        gameplayParent.GetChild(0).gameObject.SetActive(false);
         pnlHome.SetActive(true);
         pnlIngame.SetActive(false);
         pnlLose.SetActive(false);
@@ -340,13 +341,12 @@ public class UIController2 : MonoBehaviour
     IEnumerator DelayLoad()
     {
         SetUpOutGame();
-
-        AudioController.instance.PlaySound("ingame");
-        GameObject gameplay = Instantiate(gameplayPrefab, gameplayParent);
-        gameplay.transform.position = Vector3.zero;
+            AudioController.instance.PlaySound("ingame");
+            //GameObject gameplay = Instantiate(GameManage.gameplayPrefab, gameplayParent);
+            //gameplay.transform.position = Vector3.zero;
+            gameplayParent.GetChild(0).gameObject.SetActive(true);
         pnlHome.SetActive(false);
         pnlIngame.SetActive(true);
-
         GameplayController.instance.GetData();
 
         yield return new WaitForSeconds(0.5f);

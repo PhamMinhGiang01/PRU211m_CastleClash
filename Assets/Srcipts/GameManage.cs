@@ -10,6 +10,7 @@ public class GameManage : MonoBehaviour
     public static string tagPlace ="";
     public static string tagPlace1 = "";
     public static GameObject tower;
+    public static GameObject gameplayPrefab;
     void Start()
     {
         position = new Vector3();
