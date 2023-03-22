@@ -35,6 +35,7 @@ public class UIController2 : MonoBehaviour
     IEnumerator DelayPlay()
     {
         SetUpNewGame();
+        speedText.text = "x" + "1";
         gameplayParent.gameObject.SetActive(true);
         PlayerPrefs.SetInt("wave", 0);
         DOVirtual.DelayedCall(.2f, () =>
