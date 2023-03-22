@@ -10,6 +10,7 @@ public class MagicTowerController : MonoBehaviour
     public GameObject magic;
     public Transform arrowParentLv1;
     List<GameObject> monsters = new List<GameObject>();
+
     private float fireRate = 1.5f;
     
     public float price;
@@ -17,6 +18,7 @@ public class MagicTowerController : MonoBehaviour
     public int level;
     public int damage;
     public int damageIncrease;
+    public float speed;
     void Start()
     {
         price = 150;
@@ -24,6 +26,7 @@ public class MagicTowerController : MonoBehaviour
         level = 1;
         damage = 60;
         damageIncrease = 20;
+        speed = 5;
     }
 
     // Update is called once per frame
@@ -71,7 +74,7 @@ public class MagicTowerController : MonoBehaviour
         bullet.transform.localRotation = Quaternion.Euler(new Vector3(0, 0, angle));
 
         float distance = Vector2.Distance(bullet.transform.position, monster.transform.position);
-        float time = distance / 5;
+        float time = distance / speed;
         //AudioController.instance.PlaySound("archerShoot");
         bullet.transform.DOMove(monster.transform.position, time).SetEase(Ease.Linear);
         yield return new WaitForSeconds(time);

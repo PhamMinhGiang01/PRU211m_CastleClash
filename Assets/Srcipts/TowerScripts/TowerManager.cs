@@ -86,6 +86,7 @@ public class TowerManager : MonoBehaviour
                 tower.GetComponent<ArrowTowerController>().priceUpgrade = priceUpgradeBefore + 10 + 2 * ((nextLevel+1) - 3);
                 tower.GetComponent<ArrowTowerController>().damage += damageIncreasBefore;
                 tower.GetComponent<ArrowTowerController>().damageIncrease = damageIncreasBefore + 4 + 2 * ((nextLevel+1) - 3);
+                tower.GetComponent<ArrowTowerController>().speed += 0.05f;
 
             if (nextLevel == 10)
             {
@@ -118,6 +119,7 @@ public class TowerManager : MonoBehaviour
             tower.GetComponent<MagicTowerController>().priceUpgrade = priceUpgradeBefore + 10 + 2 * ((nextLevel + 1) - 3);
             tower.GetComponent<MagicTowerController>().damage += damageIncreasBefore;
             tower.GetComponent<MagicTowerController>().damageIncrease = damageIncreasBefore + 4 + 2 * ((nextLevel + 1) - 3);
+            tower.GetComponent<ArrowTowerController>().speed += 0.05f;
             if (nextLevel == 10)
             {
                 SpriteRenderer spriteRenderer = tower.GetComponent<SpriteRenderer>();
@@ -149,6 +151,7 @@ public class TowerManager : MonoBehaviour
             tower.GetComponent<StoneTowerController>().priceUpgrade = priceUpgradeBefore + 10 + 2 * ((nextLevel + 1) - 3);
             tower.GetComponent<StoneTowerController>().damage += damageIncreasBefore;
             tower.GetComponent<StoneTowerController>().damageIncrease = damageIncreasBefore + 4 + 2 * ((nextLevel + 1) - 3);
+            tower.GetComponent<ArrowTowerController>().speed += 0.05f;
             if (nextLevel == 10)
             {
                 SpriteRenderer spriteRenderer = tower.GetComponent<SpriteRenderer>();
@@ -180,6 +183,7 @@ public class TowerManager : MonoBehaviour
             tower.GetComponent<BoomTowerController>().priceUpgrade = priceUpgradeBefore + 10 + 2 * ((nextLevel + 1) - 3);
             tower.GetComponent<BoomTowerController>().damage += damageIncreasBefore;
             tower.GetComponent<BoomTowerController>().damageIncrease = damageIncreasBefore + 4 + 2 * ((nextLevel + 1) - 3);
+            tower.GetComponent<ArrowTowerController>().speed += 0.05f;
             if (nextLevel == 10)
             {
                 SpriteRenderer spriteRenderer = tower.GetComponent<SpriteRenderer>();
