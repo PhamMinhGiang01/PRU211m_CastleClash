@@ -1,8 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Unity.Burst.CompilerServices;
 using UnityEngine;
 
 public class BuildTower : MonoBehaviour
